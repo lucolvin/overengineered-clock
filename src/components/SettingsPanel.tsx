@@ -5,6 +5,7 @@ import { getTimezones } from '../utils/timeFormatters';
 interface SettingsPanelProps {
   settings: ClockSettings;
   onUpdate: (updates: Partial<ClockSettings>) => void;
+  onReset: () => void;
   isOpen: boolean;
   onToggle: () => void;
 }
@@ -36,12 +37,29 @@ export const SettingsPanel = ({ settings, onUpdate, isOpen, onToggle }: Settings
         }}
       >
         <div className="p-6 space-y-6">
-          <h2
-            className="text-2xl font-bold mb-4"
-            style={{ color: settings.color_scheme.text }}
-          >
-            Clock Settings
-          </h2>
+          <div className="flex items-center gap-4">
+            <h2
+              className="text-2xl font-bold"
+              style={{ color: settings.color_scheme.text }}
+            >
+              Clock Settings
+            </h2>
+            <button
+              onClick={() => {
+                if (window.confirm('Reset settings to defaults?')) {
+                  onReset();
+                }
+              }}
+              className="ml-auto px-3 py-1 rounded border-2 text-sm"
+              style={{
+                backgroundColor: `${settings.color_scheme.accent}20`,
+                borderColor: settings.color_scheme.accent,
+                color: settings.color_scheme.text,
+              }}
+            >
+              Reset Defaults
+            </button>
+          </div>
 
           <div className="space-y-2">
             <label className="block font-semibold" style={{ color: settings.color_scheme.text }}>

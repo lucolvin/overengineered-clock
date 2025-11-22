@@ -76,5 +76,14 @@ export const useClockSettings = () => {
     });
   };
 
-  return { settings, loading, updateSettings };
+  const resetSettings = () => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultSettings));
+    } catch {
+      // ignore localStorage errors
+    }
+    setSettings(defaultSettings);
+  };
+
+  return { settings, loading, updateSettings, resetSettings };
 };
