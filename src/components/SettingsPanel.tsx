@@ -250,35 +250,6 @@ export const SettingsPanel = ({ settings, onUpdate, onReset, isOpen, onToggle }:
               />
               <span style={{ color: settings.color_scheme.text }}>Glow Effect</span>
             </label>
-
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={settings.effects.shadow}
-                onChange={(e) =>
-                  onUpdate({
-                    effects: { ...settings.effects, shadow: e.target.checked },
-                  })
-                }
-                className="w-5 h-5"
-              />
-              <span style={{ color: settings.color_scheme.text }}>Shadow Effect</span>
-            </label>
-
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={settings.effects.scanlines}
-                onChange={(e) =>
-                  onUpdate({
-                    effects: { ...settings.effects, scanlines: e.target.checked },
-                  })
-                }
-                className="w-5 h-5"
-                disabled={settings.display_mode !== 'digital'}
-              />
-              <span style={{ color: settings.color_scheme.text }}>Scanlines (CRT)</span>
-            </label>
           </div>
 
           <button

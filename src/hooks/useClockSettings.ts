@@ -16,8 +16,6 @@ export type ClockSettings = {
   font_size: number;
   effects: {
     glow: boolean;
-    shadow: boolean;
-    scanlines: boolean;
   };
 };
 
@@ -37,8 +35,6 @@ const defaultSettings: ClockSettings = {
   font_size: 72,
   effects: {
     glow: true,
-    shadow: false,
-    scanlines: false,
   },
 };
 
