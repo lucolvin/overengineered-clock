@@ -10,7 +10,7 @@ interface SettingsPanelProps {
   onToggle: () => void;
 }
 
-export const SettingsPanel = ({ settings, onUpdate, isOpen, onToggle }: SettingsPanelProps) => {
+export const SettingsPanel = ({ settings, onUpdate, onReset, isOpen, onToggle }: SettingsPanelProps) => {
   const timezones = getTimezones();
 
   return (
@@ -44,21 +44,6 @@ export const SettingsPanel = ({ settings, onUpdate, isOpen, onToggle }: Settings
             >
               Clock Settings
             </h2>
-            <button
-              onClick={() => {
-                if (window.confirm('Reset settings to defaults?')) {
-                  onReset();
-                }
-              }}
-              className="ml-auto px-3 py-1 rounded border-2 text-sm"
-              style={{
-                backgroundColor: `${settings.color_scheme.accent}20`,
-                borderColor: settings.color_scheme.accent,
-                color: settings.color_scheme.text,
-              }}
-            >
-              Reset Defaults
-            </button>
           </div>
 
           <div className="space-y-2">
@@ -295,6 +280,22 @@ export const SettingsPanel = ({ settings, onUpdate, isOpen, onToggle }: Settings
               <span style={{ color: settings.color_scheme.text }}>Scanlines (CRT)</span>
             </label>
           </div>
+
+          <button
+            onClick={() => {
+              if (window.confirm('Reset settings to defaults?')) {
+                onReset();
+              }
+            }}
+            className="w-full px-4 py-2 rounded border-2 text-sm mt-6"
+            style={{
+              backgroundColor: `${settings.color_scheme.accent}20`,
+              borderColor: settings.color_scheme.accent,
+              color: settings.color_scheme.text,
+            }}
+          >
+            Reset Defaults
+          </button>
         </div>
       </div>
     </>

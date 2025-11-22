@@ -78,11 +78,11 @@ export const useClockSettings = () => {
 
   const resetSettings = () => {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultSettings));
+      localStorage.removeItem(STORAGE_KEY); // Clear stored settings
     } catch {
-      // ignore localStorage errors
+      // Ignore localStorage errors
     }
-    setSettings(defaultSettings);
+    setSettings(defaultSettings); // Reset to defaults
   };
 
   return { settings, loading, updateSettings, resetSettings };
