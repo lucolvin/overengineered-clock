@@ -1,0 +1,7 @@
+<svg width="192" height="192" xmlns="http://www.w3.org/2000/svg">
+  <rect width="192" height="192" fill="#000000"/>
+  <circle cx="96" cy="96" r="70" fill="none" stroke="#00ff00" stroke-width="4"/>
+  <line x1="96" y1="96" x2="96" y2="40" stroke="#00ff00" stroke-width="4" stroke-linecap="round"/>
+  <line x1="96" y1="96" x2="140" y2="96" stroke="#00ff00" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="96" cy="96" r="6" fill="#00ff00"/>
+</svg>
